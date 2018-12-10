@@ -1,12 +1,12 @@
 from redis import Redis
 
-from config import REDIS_HOST, REDIS_PORT, REDIS_DB, FIELDS, PRIMARY_KEY
+from config import FIELDS, PRIMARY_KEY, REDIS_URL
 
 
 class RedisWrapper(object):
 
     def __init__(self):
-        self.connection = Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB)
+        self.connection = Redis.from_url(url=REDIS_URL)
         self._fields = FIELDS
         self.primary_key = PRIMARY_KEY
 
