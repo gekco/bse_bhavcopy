@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<!--===============================================================================================-->
+	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="/static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+
+
+
+
+
+</head>
+<body>
+
+<div class="heading" text=#6666ff><center><h2>BSE BHAVCOPY</h2></center></div>
+
+<div ng-app="myApp" ng-controller="myCtrl" class="container">
+    <div class="wrap">
+   <div class="search">
+	<input type="text" class = "searchTerm" id="searchbox" my-on-key-down-call="callRestService()" placeholder="Search..">
+      </div>
+      </div>
+      <br>
+      <br>
+    <br>
+    <br>
+    <table class="responsive-table">
+        <thead>
+            <tr >
+                <th >SC_NAME</th>
+				<th >SC_CODE</th>
+				<th >OPEN</th>
+				<th >HIGH</th>
+				<th >LOW</th>
+                <th >CLOSE</th>
+            </tr>
+        </thead>
+
+        <tbody ng-repeat="row in records">
+            <tr >
+                <td >{{row.SC_NAME}}</td>
+				<td >{{row.SC_CODE}}</td>
+				<td >{{row.OPEN}}</td>
+				<td >{{row.HIGH}}</td>
+				<td >{{row.LOW}}</td>
+                <td >{{row.CLOSE}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>
