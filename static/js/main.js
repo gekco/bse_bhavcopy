@@ -13,9 +13,9 @@ app.controller('myCtrl', function($http, $scope) {
 
 
 var typingTimer;                //timer identifier
-var doneTypingInterval = 100;  //time in ms, 5 second for example
+var doneTypingInterval = 100;  //time in ms need to wait after user stops typing
 
-//user is "finished typing," do something
+//user is "finished typing"
 function doneTyping (scope) {
   scope.callRestService()
 }
@@ -23,15 +23,11 @@ function doneTyping (scope) {
 app.directive('myOnKeyDownCall', function () {
     return function ($scope, element) {
         element.bind("keyup", function (event) {
-          //var val = element.val();
-          //$scope.callRestService();
           clearTimeout(typingTimer);
   typingTimer = setTimeout(function() { doneTyping($scope) }, doneTypingInterval);
         });
 
         element.bind("keydown", function (event) {
-          //var val = element.val();
-          //$scope.callRestService();
           clearTimeout(typingTimer);
         });
     };

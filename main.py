@@ -4,6 +4,9 @@ from redis_wrapper import RedisWrapper
 
 
 class Manager(object):
+    '''
+    Manager Class - > Wrapper for the server/user to save or fetch data from redis
+    '''
     def __init__(self):
         self.redis = RedisWrapper()
         self.downloader = Downloader()

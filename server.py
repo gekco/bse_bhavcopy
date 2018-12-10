@@ -34,31 +34,29 @@ if __name__ == "__main__":
     }
 
     # our WSGI application
-    wsgiapp = cherrypy.tree.mount(Server(), config=conf)
-
-    # Disable the autoreload which won't play well
-    cherrypy.config.update({'engine.autoreload.on': False})
-
-    # let's not start the CherryPy HTTP server
-    cherrypy.server.unsubscribe()
-
-    # use CherryPy's signal handling
-    cherrypy.engine.signals.subscribe()
-
-    # Prevent CherryPy logs to be propagated
-    # to the Tornado logger
-    cherrypy.log.error_log.propagate = False
-
-    # Run the engine but don't block on it
-    cherrypy.engine.start()
-
-    # Run thr tornado stack
-    container = tornado.wsgi.WSGIContainer(wsgiapp)
-    http_server = tornado.httpserver.HTTPServer(container)
-    http_server.listen(os.environ.get("PORT", 8080))
-    # Publish to the CherryPy engine as if
-    # we were using its mainloop
-    tornado.ioloop.PeriodicCallback(lambda: cherrypy.engine.publish('main'), 100).start()
-    tornado.ioloop.IOLoop.instance().start()
-
-    cherrypy.quickstart(Server(), '/', conf)
+    # wsgiapp = cherrypy.tree.mount(Server(), config=conf)
+    #
+    # # Disable the autoreload which won't play well
+    # cherrypy.config.update({'engine.autoreload.on': False})
+    #
+    # # let's not start the CherryPy HTTP server
+    # cherrypy.server.unsubscribe()
+    #
+    # # use CherryPy's signal handling
+    # cherrypy.engine.signals.subscribe()
+    #
+    # # Prevent CherryPy logs to be propagated
+    # # to the Tornado logger
+    # cherrypy.log.error_log.propagate = False
+    #
+    # # Run the engine but don't block on it
+    # cherrypy.engine.start()
+    #
+    # # Run thr tornado stack
+    # container = tornado.wsgi.WSGIContainer(wsgiapp)
+    # http_server = tornado.httpserver.HTTPServer(container)
+    # http_server.listen(os.environ.get("PORT", 8080))
+    # # Publish to the CherryPy engine as if
+    # # we were using its mainloop
+    # tornado.ioloop.PeriodicCallback(lambda: cherrypy.engine.publish('main'), 100).start()
+    # tornado.ioloop.IOLoop.instance().start()
