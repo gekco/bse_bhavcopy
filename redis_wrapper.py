@@ -60,7 +60,7 @@ class RedisWrapper(object):
         results = self.connection.keys("*" + pk_saerchstr +"*")
 
         # Sort The Results( Put the records that starts with the search string first )
-        # results = sorted(results, key = lambda x: x.decode("utf-8").startswith(pk_saerchstr), reverse=True )
+        results = sorted(results, key = lambda x: x.decode("utf-8").startswith(pk_saerchstr), reverse=True )
 
         # Paginate The Results
         start_index = min((page_number-1)*page_size, len(results))
