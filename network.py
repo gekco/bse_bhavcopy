@@ -8,6 +8,9 @@ import requests
 from zipfile import ZipFile
 
 class Downloader(object):
+    '''
+    Downloader Class -> To Download Extract and Parse Bhavcopy from URL.
+    '''
 
     def __init__(self):
         self.url = BHAVCOPY_URL
@@ -21,8 +24,8 @@ class Downloader(object):
         with ZipFile(self.file) as zip:
             try:
                 self.file = zip.open(zip.filelist[0], mode='r')
-            except IndexError:
-                logging.exception("Invalid Zip File..")
+            except Exception as e:
+                raise Exception("Error Occured while Downloading and Extracting File.({0})".format(e))
 
     def _parse(self):
         self.file = [row.decode("utf-8") for row in self.file]
