@@ -55,7 +55,7 @@ if __name__ == "__main__":
     # Run thr tornado stack
     container = tornado.wsgi.WSGIContainer(wsgiapp)
     http_server = tornado.httpserver.HTTPServer(container)
-    http_server.listen(8080)
+    http_server.listen(8000)
     # Publish to the CherryPy engine as if
     # we were using its mainloop
     tornado.ioloop.PeriodicCallback(lambda: cherrypy.engine.publish('main'), 100).start()
