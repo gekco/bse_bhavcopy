@@ -3,14 +3,17 @@ certifi==2018.11.29
 chardet==3.0.4
 cheroot==6.5.2
 CherryPy==18.0.1
+heroku==0.1.4
 idna==2.7
 jaraco.functools==1.20
 more-itertools==4.3.0
 portend==2.3
+python-dateutil==1.5
 pytz==2018.7
 redis==3.0.1
 requests==2.20.1
 six==1.11.0
 tempora==1.14
+tornado==5.1.1
 urllib3==1.24.1
 zc.lockfile==1.4
